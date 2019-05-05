@@ -506,6 +506,8 @@ export default class TextField extends PureComponent {
       style: titleTextStyle,
     };
 
+    let Input = !this.props.render ? TextInput : this.props.render;
+
     return (
       <View {...containerProps}>
         <Animated.View {...inputContainerProps}>
@@ -516,7 +518,7 @@ export default class TextField extends PureComponent {
           <View style={styles.row}>
             {this.renderAffix('prefix', active, focused)}
 
-            <TextInput
+            <Input
               style={[styles.input, inputStyle, inputStyleOverrides]}
               selectionColor={tintColor}
 
