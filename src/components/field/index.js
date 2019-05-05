@@ -506,7 +506,7 @@ export default class TextField extends PureComponent {
       style: titleTextStyle,
     };
 
-    let Input = !this.props.render ? TextInput : this.props.render;
+    let Input = !this.props.customInput ? TextInput : this.props.customInput;
 
     return (
       <View {...containerProps}>
