@@ -174,7 +174,9 @@ export default class TextField extends PureComponent {
     let { disabled, editable } = this.props;
 
     if (!disabled && editable) {
-      this.input.focus();
+      this.input.focus
+        ? this.input.focus()
+        : (this.input.getElement ? this.input.getElement().focus() : null);
     }
   }
 
@@ -521,9 +523,9 @@ export default class TextField extends PureComponent {
             <Input
               style={[styles.input, inputStyle, inputStyleOverrides]}
               selectionColor={tintColor}
-
               ref={(ref) => {
-                this.updateRef('input', ref);
+                this.input = ref;
+                // this.updateRef('input', ref);
                 this.props.customInputRef && this.props.customInputRef(ref);
               }}
               {...props}
